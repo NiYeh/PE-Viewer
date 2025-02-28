@@ -87,21 +87,32 @@
 #define IDC_EXPORTTABLE                 1078
 #define IDC_EDIT1                       1079
 #define EDIT_RESOURCE                   1079
+#define IDC_EXPORTTABLE_EDIT1           1079
 #define EDIT_IMPORTTABLE                1080
 #define EDIT_EXPORTTABLE                1080
+#define IDC_EXPORTTABLE_EDIT2           1080
 #define EDIT_BOUNDIMPORT                1081
+#define IDC_EXPORTTABLE_EDIT3           1081
 #define EDIT_IAT                        1082
+#define IDC_EXPORTTABLE_EDIT4           1082
+#define IDC_EXPORTTABLE_EDIT5           1083
 #define EDIT_RELOCATION                 1084
+#define IDC_EXPORTTABLE_EDIT6           1084
 #define IDC_LIST_IMPORTLIST1            1085
+#define IDC_EXPORTTABLE_EDIT7           1085
 #define IDC_LIST_IMPORTLIST2            1086
+#define IDC_EXPORTTABLE_EDIT8           1086
+#define IDC_EXPORTTABLE_EDIT9           1087
+#define IDC_LIST_EXPORTTABLE            1088
+#define IDC_EXPORTTABLE_EDIT10          1089
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        115
+#define _APS_NEXT_RESOURCE_VALUE        116
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1088
+#define _APS_NEXT_CONTROL_VALUE         1089
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

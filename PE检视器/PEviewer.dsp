@@ -106,6 +106,10 @@ SOURCE=.\DialogSection.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\ExportTable.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\ImportTable.cpp
 # End Source File
 # Begin Source File
@@ -136,6 +140,10 @@ SOURCE=.\DialogPeView.h
 # Begin Source File
 
 SOURCE=.\DialogSection.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ExportTable.h
 # End Source File
 # Begin Source File
 

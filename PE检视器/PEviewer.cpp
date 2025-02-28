@@ -8,6 +8,7 @@
 #include "DialogSection.h"
 #include "DialogCatalogue.h"
 #include "ImportTable.h"
+#include "ExportTable.h"
 
 #include <commctrl.h>			
 #pragma comment(lib,"comctl32.lib")			
@@ -26,6 +27,7 @@ BOOL CALLBACK AboutDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 BOOL CALLBACK CatalogueDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 BOOL CALLBACK ImportTableDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
+BOOL CALLBACK ExportTableDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 
 int APIENTRY WinMain(HINSTANCE hInstance,
@@ -215,6 +217,31 @@ BOOL CALLBACK SectionDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	return FALSE;								
 }
 
+// ************************** AboutDlgProc **************************
+BOOL CALLBACK AboutDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	switch (uMsg)
+	{
+		case WM_INITDIALOG:
+		{
+			//设置图标
+			SendMessage(hDlg,WM_SETICON,ICON_BIG,(DWORD)hIconBig);
+			SendMessage(hDlg,WM_SETICON,ICON_SMALL,(DWORD)hIconSmall);
+			break;
+		}
+
+		case WM_CLOSE:
+		{
+			EndDialog(hDlg, 0);
+			break;
+		}
+
+		break;
+	}
+
+	return FALSE;
+}
+
 // ************************** CatalogueDlgProc **************************
 BOOL CALLBACK CatalogueDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)			
 {										
@@ -255,37 +282,18 @@ BOOL CALLBACK CatalogueDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 						DialogBox(hAppInstance, MAKEINTRESOURCE(IDC_IMPORTTABLE), NULL, ImportTableDlgProc);
 						return TRUE;
 					}
+
+				case IDC_BUTTON_EXPORTTABLE:
+					{
+						DialogBox(hAppInstance, MAKEINTRESOURCE(IDC_EXPORTTABLE), NULL, ExportTableDlgProc);
+						return TRUE;
+					}
 			}
 
 		break;
     }
 									
 	return FALSE ;								
-}
-
-// ************************** AboutDlgProc **************************
-BOOL CALLBACK AboutDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-	switch (uMsg)
-	{
-		case WM_INITDIALOG:
-		{
-			//设置图标
-			SendMessage(hDlg,WM_SETICON,ICON_BIG,(DWORD)hIconBig);
-			SendMessage(hDlg,WM_SETICON,ICON_SMALL,(DWORD)hIconSmall);
-			break;
-		}
-
-		case WM_CLOSE:
-		{
-			EndDialog(hDlg, 0);
-			break;
-		}
-
-		break;
-	}
-
-	return FALSE;
 }
 
 // ************************** ImportTableDlgProc **************************
@@ -310,6 +318,32 @@ BOOL CALLBACK ImportTableDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 			{
 				EnumImportModule(GetDlgItem(hDlg, IDC_LIST_IMPORTLIST2), GetDlgItem(hDlg, IDC_LIST_IMPORTLIST1), wParam, lParam, szFilePath);
 			}
+			break;
+		}
+
+		case WM_CLOSE:
+		{
+			EndDialog(hDlg, 0);
+			break;
+		}
+
+		break;
+	}
+
+	return FALSE;
+}
+
+// ************************** ExportTableDlgProc **************************
+BOOL CALLBACK ExportTableDlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	switch (uMsg)
+	{
+		case WM_INITDIALOG:
+		{
+			//设置图标
+			SendMessage(hDlg,WM_SETICON,ICON_BIG,(DWORD)hIconBig);
+			SendMessage(hDlg,WM_SETICON,ICON_SMALL,(DWORD)hIconSmall);
+			InitExport(hDlg, szFilePath);
 			break;
 		}
 

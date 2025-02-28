@@ -380,7 +380,7 @@ VOID EnumImportModule(HWND hListModules, HWND hListImport, WPARAM wParam, LPARAM
 					vitem.iSubItem = 3;
 					ListView_SetItem(hListModules, &vitem);
 
-					sprintf(sztBuffer, "–Ú∫≈µº»Î£∫%xh %dd", *OriginalFirstThunk & 0x7FFFFFFF, *OriginalFirstThunk & 0x7FFFFFFF);
+					sprintf(sztBuffer, "Ordinal£∫%xh %dd", *OriginalFirstThunk & 0x7FFFFFFF, *OriginalFirstThunk & 0x7FFFFFFF);
 
 					vitem.pszText = sztBuffer;
 					vitem.iItem = count;
